@@ -1,8 +1,8 @@
-(function(exports) {
-  var HIGH = 1;
-  var LOW = 0;
+/* global BleFirmata */
 
+(function(exports) {
   function Arduino(options) {
+    this.firmata = new BleFirmata(options);
     this.options = options;
   }
 
