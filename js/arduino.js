@@ -1,9 +1,9 @@
 /* global BleFirmata */
+'use strict';
 
 (function(exports) {
   function Arduino(options) {
     this.firmata = new BleFirmata(options);
-    this.options = options;
   }
 
   Arduino.HIGH = 1;
