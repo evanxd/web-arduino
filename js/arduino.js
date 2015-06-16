@@ -1,9 +1,9 @@
-/* global BleFirmata, EventEmitter2 */
+/* global BLEFirmata, EventEmitter2 */
 'use strict';
 
 (function(exports) {
   function Arduino(options) {
-    this._firmata = new BleFirmata(options);
+    this._firmata = new BLEFirmata(options);
     this._firmata.ble.on('connected', () => {
       this.emit('connected');
     });
