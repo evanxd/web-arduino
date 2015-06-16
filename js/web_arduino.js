@@ -1,15 +1,27 @@
+/* global Arduino */
 'use strict';
 
-(function(doc) {
+(function(window, document) {
   function WebArduino() {}
 
-  WebArduino.prototype = Object.create(HTMLElement.prototype);
+  WebArduino.prototype = extend(Arduino.prototype, HTMLElement.prototype);
 
   WebArduino.prototype.createdCallback = function() {
     console.log('The web-arduino tag is created.');
   };
 
-  doc.register('web-arduino', {
+  function extend() {
+    var object = {};
+    for (var i = 0; i < arguments.length; i++) {
+      var attribute;
+      for (attribute in arguments[i]) {
+        object[attribute] = arguments[i][attribute];
+      }
+    }
+    return object;
+  }
+
+  document.register('web-arduino', {
     prototype: WebArduino.prototype
   });
-}(document));
+}(window, document));
