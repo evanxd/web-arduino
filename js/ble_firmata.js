@@ -19,9 +19,10 @@
       var pinData;
       var ble = this.ble;
       // Set pin mode.
-      data = BLEFirmata.PIN_MODE.toString(16) +
-             this._paddingLeft(pin.toString(16), 2) + '01';
-      ble.send(data);
+      // XXX: For unknown performance issues, do not set pin mode.
+      // data = BLEFirmata.PIN_MODE.toString(16) +
+      //        this._paddingLeft(pin.toString(16), 2) + '01';
+      // ble.send(data);
       // Write digital data
       data = BLEFirmata.DIGITAL_WRITE.toString(16);
       if (pin > 1 && pin < 7) {
