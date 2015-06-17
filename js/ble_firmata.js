@@ -18,6 +18,7 @@
       var data;
       var pinData;
       var ble = this.ble;
+      value = value ? 1 : 0;
       // Set pin mode.
       // XXX: For unknown performance issues, do not set pin mode.
       // data = BLEFirmata.PIN_MODE.toString(16) +
