@@ -6,12 +6,29 @@
 
   WebArduino.prototype = Object.create(HTMLElement.prototype);
 
+  WebArduino.prototype._arduino = null;
+
+  [2, 3, 4, 5, 6, 7].forEach(function(pin) {
+    var pinName = 'd' + pin;
+    Object.defineProperty(WebArduino.prototype, pinName, {
+      set: function(value) {
+        this._arduino[pinName] = value;
+      },
+      get: function() {
+        return this._arduino[pinName];
+      }
+    });
+  });
+
   WebArduino.prototype.createdCallback = function() {
-    var arduino = new Arduino({ address: this.getAttribute('device-address') });
-    arduino.on('connected', function() {
+    this._arduino = new Arduino({
+      name: this.getAttribute('device-name'),
+      address: this.getAttribute('device-address') 
+    });
+    this._arduino.on('connected', function() {
       this.dispatchEvent(new CustomEvent('connected', {
         detail: {
-          arduino: arduino
+          arduino: this
         }
       }));
     }.bind(this));
