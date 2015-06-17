@@ -3,7 +3,7 @@
 
 (function(exports) {
   function Arduino(options) {
-    this._firmata = new BLEFirmata(options);
+    this._firmata = new BLEFirmata(options.name, options.address);
     this._firmata.ble.on('connected', () => {
       this.emit('connected');
     });

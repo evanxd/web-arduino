@@ -2,8 +2,9 @@
 'use strict';
 
 (function(exports) {
-  function BLEFirmata(options) {
-    this.ble = new BluetoothHelper(options);
+  function BLEFirmata(name, address) {
+    this.ble = new BluetoothHelper(name, address);
+    this.ble.connect();
     this._digitalPins = [];
   }
 
