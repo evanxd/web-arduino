@@ -1,10 +1,9 @@
-/* global BluetoothHelper */
+/* global Bluetooth */
 'use strict';
 
 (function(exports) {
   function BLEFirmata(name, address) {
-    this.ble = new BluetoothHelper(name, address);
-    this.ble.connect();
+    this.ble = Bluetooth.addDevice(name, address);
     this._digitalPins = [];
   }
 
