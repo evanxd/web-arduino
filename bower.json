@@ -16,7 +16,7 @@
   ],
   "license": "Apache License 2.0",
   "dependencies": {
-    "bluetooth-helper": "0.0.5",
+    "bluetooth-helper": "0.0.6",
     "webcomponentsjs": "0.7.2"
   }
 }
