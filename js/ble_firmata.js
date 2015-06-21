@@ -7,6 +7,8 @@
     this._digitalPins = [];
   }
 
+  BLEFirmata.INPUT = 0;
+  BLEFirmata.OUTPUT = 1;
   BLEFirmata.DIGITAL_WRITE = 0x90;
   BLEFirmata.PIN_MODE = 0xF4;
 
@@ -16,14 +18,10 @@
     digitalWrite: function(pin, value) {
       var data;
       var pinData;
-      var ble = this.ble;
       value = value ? 1 : 0;
-      // Set pin mode.
       // XXX: For unknown performance issues, do not set pin mode.
-      // data = BLEFirmata.PIN_MODE.toString(16) +
-      //        this._paddingLeft(pin.toString(16), 2) + '01';
-      // ble.send(data);
-      // Write digital data
+      // this.pinMode(pin, BLEFirmata.OUTPUT);
+      // Write digital data.
       data = BLEFirmata.DIGITAL_WRITE.toString(16);
       if (pin > 1 && pin < 7) {
         pinData = 0;
@@ -39,8 +37,15 @@
         // Only support pin 2 to pin 7.
         return;
       }
-      ble.send(data);
+      this.ble.send(data);
       this._digitalPins[pin] = value;
+    },
+
+    pinMode: function(pin, mode) {
+      var data = BLEFirmata.PIN_MODE.toString(16) +
+        this._paddingLeft(pin.toString(16), 2) +
+        this._paddingLeft(mode.toString(16), 2);
+      this.ble.send(data);
     },
 
     _paddingLeft: function(str, lenght) {

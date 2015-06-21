@@ -20,18 +20,29 @@
     });
   });
 
+  WebArduino.prototype.subscribe = function(pins) {
+    this._arduino.subscribe(pins);
+  };
+
   WebArduino.prototype.createdCallback = function() {
-    this._arduino = new Arduino({
+    var arduino = this._arduino = new Arduino({
       name: this.getAttribute('device-name'),
       address: this.getAttribute('device-address') 
     });
-    this._arduino.on('connected', function() {
+    arduino.on('connected', () => {
       this.dispatchEvent(new CustomEvent('connected', {
         detail: {
           arduino: this
         }
       }));
-    }.bind(this));
+    });
+    arduino.on('digitalpinchanged', (pins) => {
+      this.dispatchEvent(new CustomEvent('digitalpinchanged', {
+        detail: {
+          pins: pins
+        }
+      }));
+    });
   };
 
   document.register('web-arduino', {
