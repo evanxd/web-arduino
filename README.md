@@ -1,7 +1,7 @@
 # Web Arduino
 A Web Component to control an Arduino device.
 
-## Import Web Arduino in Your Project
+## Import It in Your Project
 1. Download: Run `bower install web-arduino` or `npm install web-arduino`.
 2. Import: Add `<link id="webArduino" rel="import" href="path/to/web-arduino/web-arduino.html">` in your Web app.
 
@@ -22,3 +22,6 @@ Blink a LED.
   });
 </script>
 ```
+
+## Platform Compatibility
+* [Firefox OS](https://developer.mozilla.org/Firefox_OS) 3.0.0.0-prerelease
