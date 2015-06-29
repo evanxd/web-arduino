@@ -1,0 +1,19 @@
+{
+  "name": "web-arduino",
+  "version": "0.0.1",
+  "homepage": "https://github.com/evanxd/web-arduino",
+  "authors": [
+    "Evan Xd <itoyxd@gmail.com>"
+  ],
+  "description": "A Web Component to control an Arduino device.",
+  "keywords": [
+    "arduino",
+    "ble",
+    "bluetooth",
+    "fxos",
+    "iot",
+    "web-components",
+    "wot"
+  ],
+  "license": "Apache License 2.0"
+}
