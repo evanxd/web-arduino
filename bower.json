@@ -12,6 +12,7 @@
     "bluetooth",
     "fxos",
     "iot",
+    "web-components",
     "wot"
   ],
   "license": "Apache License 2.0",
