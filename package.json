@@ -1,5 +1,5 @@
 {
-  "name": "web-arduino",
+  "name": "Web Arduino",
   "version": "0.0.1",
   "homepage": "https://github.com/evanxd/web-arduino",
   "authors": [
@@ -15,5 +15,9 @@
     "web-components",
     "wot"
   ],
-  "license": "Apache License 2.0"
+  "license": "Apache License 2.0",
+  "dependencies": {
+    "blue-yeast": "0.0.9",
+    "webcomponentsjs": "0.7.2"
+  }
 }
