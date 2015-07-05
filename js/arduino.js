@@ -5,15 +5,15 @@
   function Arduino(options) {
     this._firmata = new BLEFirmata(options.name, options.address);
     var ble = this._firmata.ble;
-    ble.on('connected', () => {
-      this.emit('connected');
+    ble.on('connect', () => {
+      this.emit('connect');
     });
     ble.on('data', (data) => {
       data = this._toPinData(data);
       for (var pin in data) {
         this[pin] = data[pin];
       }
-      this.emit('digitalpinchanged', data);
+      this.emit('digitalpinchange', data);
     });
   }
 

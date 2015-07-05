@@ -3,7 +3,7 @@
 
 (function(exports) {
   function BLEFirmata(name, address) {
-    this.ble = Bluetooth.addDevice(name, address);
+    this.ble = Bluetooth.connect(name, address);
     this._digitalPins = [];
   }
 
